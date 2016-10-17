@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Документ без названия</title>
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+    <script type='text/javascript' src='jquery.mousewheel.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/fonts.css">
+    <script type="text/javascript" src="script/script.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="start_page">
+            <div id="logo">
+                <img src="img/icon.png" id="logo_img" width="10.6%">
+                <div id="logo_text">
+                    Labon
+                </div>
+
+
+            </div>
+            <div id="start_content">
+                <div id="description">
+                    ЛУЧШИЙ САЙТ ПО ОБМЕНУ ТОВАРАМИ
+                </div>
+                <div id="description_ask">
+                    Не веришь?
+                </div>
+                <div id="description_left_arrow">
+                    <img src="img/left_arrow.png" id="left_arrow">
+
+                </div>
+                <div id="button_cont">
+                    <div id="add_trade" class="button_font">ДОБАВЬ ОБМЕН</div>
+                    <div id="button_or">ИЛИ</div>
+                    <div id="button_other" class="button_font">
+                        <div>посмотри что</div>
+                        меняют другие
+                    </div>
+                    <img src="img/right_arrow.png" id="right_arrow" >
+                </div>
+            </div>
+        </div>
+        <div id="green_separator">
+
+            <div id="arrow_on_green" onclick="to_view_click();">
+            </div>
+        </div>
+        <div id="content">
+            <div id="top_line_content">
+                <div id="category">Категории:</div>
+                <div id="category_list">
+                    <span class="category_tag">Отдых</span>
+                </div>
+            </div>
+            
+            <div id="merch_wrapper">
+                <div id="top_stroke" class="merch_stroke"></div>
+                <div id="middle_stroke" class="merch_stroke"></div>
+                <div id="bottom_stroke" class="merch_stroke"></div>
+            </div>
+            <div id="bottom_line_content">
+                sdf
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    
+    console.log("width: " + window.innerWidth);
+    
+    var ss = document.getElementById("middle_stroke");
+    var ss1 = document.getElementById("top_stroke");
+    var ss2 = document.getElementById("bottom_stroke");
+    var height = ss.style.height;
+
+    for(var i = 0; i < 10; i++)
+    {
+       var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+        switch(r)
+            {
+                case 1:
+                    ss.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+                    break;
+                    
+                case 2:
+                    ss.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+                    break;
+                    
+                case 3:
+                    ss.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+                    break;
+                    
+            }
+        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        
+        switch(r)
+        {
+            case 1:
+                ss1.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+                break;
+
+            case 2:
+                ss1.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+                break;
+
+            case 3:
+                ss1.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+                break;
+
+        }
+        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        
+        switch(r)
+        {
+            case 1:
+                ss2.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+                break;
+
+            case 2:
+                ss2.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+                break;
+
+            case 3:
+                ss2.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+                break;
+
+        }
+        
+       
+        
+       
+    }
+    
+    $(function () {
+
+        $("body").mousewheel(function (event, delta) {
+
+            this.scrollLeft -= (delta * 60);
+
+            event.preventDefault();
+
+        });
+
+    });
+</script>
+
+</html>

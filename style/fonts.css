@@ -1,0 +1,8 @@
+@font-face {
+font-family: BAUHAUS; 
+    src: url(fonts/BAUHS93.TTF) format('truetype');
+}
+@font-face {
+    font-family: Intro; 
+    src: url(fonts/Intro.otf) format('otf');
+}
