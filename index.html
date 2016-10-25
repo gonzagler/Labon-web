@@ -82,10 +82,15 @@
     var ss1 = document.getElementById("top_stroke");
     var ss2 = document.getElementById("bottom_stroke");
     var height = ss.style.height;
+    
+    var prod = '<div class = "block"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
 
     for(var i = 0; i < 10; i++)
     {
-       var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        ss.innerHTML += '<div class = "block" id="b_ss_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
+        ss1.innerHTML += '<div class = "block" id="ss1_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
+        ss2.innerHTML += '<div class = "block" id="ss2_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
+            /*var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 
         switch(r)
             {
@@ -135,7 +140,11 @@
                 ss2.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
                 break;
 
-        }
+        }*/
+        
+    
+        
+        
         
        
         
@@ -153,6 +162,34 @@
         });
 
     });
+    
+    
+    //----------------------------------------------
+    /*$(".block").hover(
+        
+        function () {
+            
+            $(this.id).slideToggle() ;
+            $(".descrBlock").slideToggle();
+            $(".greyBg").show();
+        },
+        function(){
+            $(this.id).slideToggle() ;
+            $(".descrBlock").slideToggle();
+            $(".greyBg").hide();
+        }
+    );*/
+    /*function handler(ev) {
+        var target = $(ev.target);
+        var elId = target.attr('id');
+        if( target.is(".block") ) {
+            
+        }
+    }
+    $(".block").mouseleave(handler);*/
+    //----------------------------------------------
+    
+    
 </script>
 
 </html>
