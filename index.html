@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <title>Labon</title>
 
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+    <!--<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>-->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type='text/javascript' src='jquery.mousewheel.min.js'></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/fonts.css">
@@ -45,7 +46,7 @@
                         <div>посмотри что</div>
                         меняют другие
                     </div>
-                    <img src="img/right_arrow.png" id="right_arrow" >
+                    <img src="img/right_arrow.png" id="right_arrow">
                 </div>
             </div>
         </div>
@@ -61,7 +62,7 @@
                     <span class="category_tag">Отдых</span>
                 </div>
             </div>
-            
+
             <div id="merch_wrapper">
                 <div id="top_stroke" class="merch_stroke"></div>
                 <div id="middle_stroke" class="merch_stroke"></div>
@@ -75,82 +76,127 @@
 
 </body>
 <script>
-    
     console.log("width: " + window.innerWidth);
-    
+
     var ss = document.getElementById("middle_stroke");
     var ss1 = document.getElementById("top_stroke");
     var ss2 = document.getElementById("bottom_stroke");
     var height = ss.style.height;
-    
+
     var prod = '<div class = "block"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
 
-    for(var i = 0; i < 10; i++)
-    {
-        ss.innerHTML += '<div class = "block" id="b_ss_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
-        ss1.innerHTML += '<div class = "block" id="ss1_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
-        ss2.innerHTML += '<div class = "block" id="ss2_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
-            /*var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    function getProd(ss, id) {
+        return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
+    }
 
-        switch(r)
-            {
-                case 1:
-                    ss.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-                    break;
-                    
-                case 2:
-                    ss.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-                    break;
-                    
-                case 3:
-                    ss.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-                    break;
-                    
-            }
-        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+
+  
+
+
+
+    for (var i = 0; i < 10; i++) {
         
+        
+        ss.innerHTML += getProd(0, i);
+        ss1.innerHTML += getProd(1, i);
+        ss2.innerHTML += getProd(2, i);
+
+        /* ss.innerHTML += '<div class = "block" id="b_ss_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
+        ss1.innerHTML += '<div class = "block" id="ss1_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
+        ss2.innerHTML += '<div class = "block" id="ss2_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';*/
+
+        /*var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
         switch(r)
         {
-            case 1:
-                ss1.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-                break;
+        case 1:
+        ss.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+        break;
 
-            case 2:
-                ss1.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-                break;
+        case 2:
+        ss.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+        break;
 
-            case 3:
-                ss1.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-                break;
+        case 3:
+        ss.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+        break;
 
         }
         var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-        
+
         switch(r)
         {
-            case 1:
-                ss2.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-                break;
+        case 1:
+        ss1.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+        break;
 
-            case 2:
-                ss2.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-                break;
+        case 2:
+        ss1.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+        break;
 
-            case 3:
-                ss2.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-                break;
+        case 3:
+        ss1.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+        break;
+
+        }
+        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+
+        switch(r)
+        {
+        case 1:
+        ss2.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
+        break;
+
+        case 2:
+        ss2.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
+        break;
+
+        case 3:
+        ss2.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
+        break;
 
         }*/
-        
-    
-        
-        
-        
-       
-        
-       
+
+
+
+
+
+
     }
     
+
+    $(document).on('mouseenter','.image', function (event){
+
+        elem1 = "#nB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+
+      /* $(elem1).slideToggle();
+        $(elem2).slideToggle();
+        $(elem3).show();
+        
+        */
+        
+        
+        
+
+    }).on('mouseleave','.greyBg',  function(event){
+        elem1 = "#nB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+
+        
+        /*
+        $(elem1).slideToggle();
+        $(elem2).slideToggle();
+        $(elem3).hide();*/
+            
+            
+       
+            
+    });
+
     $(function () {
 
         $("body").mousewheel(function (event, delta) {
@@ -162,34 +208,32 @@
         });
 
     });
-    
-    
+
+
     //----------------------------------------------
     /*$(".block").hover(
-        
-        function () {
-            
-            $(this.id).slideToggle() ;
-            $(".descrBlock").slideToggle();
-            $(".greyBg").show();
-        },
-        function(){
-            $(this.id).slideToggle() ;
-            $(".descrBlock").slideToggle();
-            $(".greyBg").hide();
-        }
+
+    function () {
+
+    $(this.id).slideToggle() ;
+    $(".descrBlock").slideToggle();
+    $(".greyBg").show();
+    },
+    function(){
+    $(this.id).slideToggle() ;
+    $(".descrBlock").slideToggle();
+    $(".greyBg").hide();
+    }
     );*/
     /*function handler(ev) {
-        var target = $(ev.target);
-        var elId = target.attr('id');
-        if( target.is(".block") ) {
-            
-        }
+    var target = $(ev.target);
+    var elId = target.attr('id');
+    if( target.is(".block") ) {
+
+    }
     }
     $(".block").mouseleave(handler);*/
     //----------------------------------------------
-    
-    
 </script>
 
 </html>

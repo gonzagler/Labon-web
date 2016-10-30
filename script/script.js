@@ -22,24 +22,23 @@ window.onscroll = function() {
 
 
 var i = 0;
-var array = ["Машины","Для дома","Игрушки","Косметика","Вещи"];
+var array = ["МАШИНЫ","ДЛЯ ДОМА","ИГРУШКИ","КОСМЕТИКА","ОДЕЖДА", "ЧТО-ТО ЕЩЕ", "ПОЧТИ ПОСЛЕДНЕЕ", "ПОСЛЕДНЕЕ"];
 var tag_count = array.length;
 
 function change_image() {
     
     document.getElementById("category_list").innerHTML = "<span class='category_tag'>" + array[i] + "</span>";
+    document.getElementById("category_list").innerHTML += "<span class='category_tag'>" + array[i+1] + "</span>";
+    document.getElementById("category_list").innerHTML += "<span class='category_tag'>" + array[i+2] + "</span>";
     
 }
 
-setInterval (function() {i+= 1; if (i+1>tag_count) i=0; change_image();}, 3000);
+setInterval (function() {i+= 3; if (i+3>tag_count) i=0; change_image();}, 3000);
 
 
 
-function to_view_click()
-{
-   
-}
-$(function() {
+
+/*$(function() {
 
     var marquee = $("#marquee"); 
     marquee.css({"overflow": "hidden", "width": "100%"});
@@ -59,4 +58,4 @@ $(function() {
 
     reset.call(marquee.find("div"));
 
-});
+});*/

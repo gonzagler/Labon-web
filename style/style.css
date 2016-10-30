@@ -5,6 +5,10 @@ html {
 body {
     margin: 0;
     padding: 0;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 #logo_img {}
@@ -204,8 +208,21 @@ body {
 .category_tag {
     font-size: 3vh;
     font-family: roboto;
+    font-weight: bold;
     color:#093b31;
+    margin-left: 6vw;
     
+}
+.category_tag:first-child
+{
+    margin-left: 0;
+}
+
+
+.category_tag:hover
+{
+    cursor: pointer;
+    color:#1f6255;
 }
 
 
@@ -214,37 +231,81 @@ body {
 .block
 {
     display: inline-block;
-    height:300px;
+    height: 29.3vh;
     position:relative;
     text-align:center;
+    overflow: hidden;
 }
 .image
 {
     height:inherit;
 }
+
+
+
+@keyframes show_name {
+    0%	{ top: -3.5vh; display: block; visibility: visible;}
+    100%	{ top: 0;display: block; visibility: visible; }
+}
+
+@keyframes show_grey_bg {
+    0%	{ visibility: visible;}
+    100%	{  visibility: visible; }
+}
+
+.block:hover .greyBg {
+    animation: show_grey_bg .175s ease-out 0s 1 normal;
+    animation-fill-mode: both;  
+}
+
+
+
+.block:hover .nameBlock {
+    animation: show_name .4s ease-out 0s 1 normal;
+    animation-fill-mode: both;  
+}
+
 .nameBlock
 {
     position:absolute;
-    display: none;
+    top:0;
+    height: 3.5vh;
+    display: block;
+    visibility: hidden;
     background:rgba(10, 10, 10, 0.82);
     color:white;
     width:100%;
-    font-size:30px;
+    font-size:3vh;
 }
+
+.block:hover .descrBlock {
+    animation: show_descr .4s ease-out 0s 1 normal;
+    animation-fill-mode: both;  
+}
+
+
+
+@keyframes show_descr {
+    0%	{ bottom: -3.5vh; visibility: hidden;  }
+    100%	{ bottom: 0; visibility: visible; }
+}
+
 .descrBlock{
     position:absolute;
-    display: none;
+    display: block;
+    visibility: hidden;
     background:rgba(10, 10, 10, 0.82);
     color:white;
     width:100%;
     bottom:0;
-    font-size:30px;
+    height: 3vh;
+    font-size:2.5vh;
 
 }
 .greyBg
 {
     position:absolute;
-    display:none;
+    visibility: hidden;
     background:rgba(10, 10, 10, 0.2);
     color:white;
     width:100%;
@@ -283,7 +344,7 @@ body {
 
 .block:hover  .nameBlock, .block:hover  .descrBlock, .block:hover  .greyBg
 {
-    display:block;
+   /* display:block;*/
 }
 .block:hover
 {
