@@ -52,7 +52,7 @@
         </div>
         <div id="green_separator">
 
-            <div id="arrow_on_green" onclick="to_view_click();">
+            <div id="arrow_on_green" >
             </div>
         </div>
         <div id="content">
@@ -68,9 +68,21 @@
                 <div id="middle_stroke" class="merch_stroke"></div>
                 <div id="bottom_stroke" class="merch_stroke"></div>
             </div>
-            <div id="bottom_line_content">
-                sdf
+
+            <div id="bottom_line_content" >
+                <div class="menu_item">Личный кабинет</div>
+                <div class="menu_item">Уведомления</div>
+                <div class="menu_item">Мои товары</div>
+                <div class="menu_item">О нас</div>
             </div>
+            <!--<div id="bottom_line_content">
+                <div id="bottom_content">
+                    <div class="bottom_menu_item">Личный кабинет</div>
+                    <div class="bottom_menu_item">Уведомления</div>
+                    <div class="bottom_menu_item">Мои товары</div>
+                    <div class="bottom_menu_item">О нас</div>
+                </div>
+            </div>-->
         </div>
     </div>
 
@@ -90,14 +102,9 @@
     }
 
 
-
-  
-
-
-
     for (var i = 0; i < 10; i++) {
-        
-        
+
+
         ss.innerHTML += getProd(0, i);
         ss1.innerHTML += getProd(1, i);
         ss2.innerHTML += getProd(2, i);
@@ -159,48 +166,34 @@
         }*/
 
 
-
-
-
-
     }
-    
 
-    $(document).on('mouseenter','.image', function (event){
 
-        elem1 = "#nB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
-        elem2 = "#dB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
-        elem3 = "#gBg_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
+    $(document).on('mouseenter', '.image', function (event) {
 
-      /* $(elem1).slideToggle();
-        $(elem2).slideToggle();
-        $(elem3).show();
-        
-        */
-        
-        
-        
+        elem1 = "#nB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
 
-    }).on('mouseleave','.greyBg',  function(event){
-        elem1 = "#nB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
-        elem2 = "#dB_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
-        elem3 = "#gBg_"+$(event.target).data("ss") + "_" + $(event.target).data("id");
 
-        
-        /*
-        $(elem1).slideToggle();
-        $(elem2).slideToggle();
-        $(elem3).hide();*/
-            
-            
-       
-            
+
+
+
+    }).on('mouseleave', '.greyBg', function (event) {
+        elem1 = "#nB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+
+
+
+
     });
 
     $(function () {
 
-        $("body").mousewheel(function (event, delta) {
+        $("html,body").mousewheel(function (event, delta) {
 
+            $('html, body').finish();
             this.scrollLeft -= (delta * 60);
 
             event.preventDefault();
@@ -208,32 +201,6 @@
         });
 
     });
-
-
-    //----------------------------------------------
-    /*$(".block").hover(
-
-    function () {
-
-    $(this.id).slideToggle() ;
-    $(".descrBlock").slideToggle();
-    $(".greyBg").show();
-    },
-    function(){
-    $(this.id).slideToggle() ;
-    $(".descrBlock").slideToggle();
-    $(".greyBg").hide();
-    }
-    );*/
-    /*function handler(ev) {
-    var target = $(ev.target);
-    var elId = target.attr('id');
-    if( target.is(".block") ) {
-
-    }
-    }
-    $(".block").mouseleave(handler);*/
-    //----------------------------------------------
 </script>
 
 </html>

@@ -45,6 +45,7 @@ body {
     display: inline-block;
     background-color: #27ae60;
     height: 100vh;
+    z-index: 100;
 }
 
 #description_ask {
@@ -126,13 +127,17 @@ body {
 
 #top_line_content {
     height: 7.8vh; 
-    display: none;
+    display: block;
     
 }
 
 #bottom_line_content {
     height: 5vh;
-    
+    display: none;
+    width: 95vw;
+    text-align: right;
+    padding-top: 1vh;
+    margin-top: 4vh;
 }
 
 #category {
@@ -253,6 +258,11 @@ body {
     100%	{  visibility: visible; }
 }
 
+@keyframes show_descr {
+    0%	{ bottom: -3.5vh; visibility: hidden;  }
+    100%	{ bottom: 0; visibility: visible; }
+}
+
 .block:hover .greyBg {
     animation: show_grey_bg .175s ease-out 0s 1 normal;
     animation-fill-mode: both;  
@@ -261,7 +271,12 @@ body {
 
 
 .block:hover .nameBlock {
-    animation: show_name .4s ease-out 0s 1 normal;
+    animation: show_name .2s ease-out 0s 1 normal;
+    animation-fill-mode: both;  
+}
+
+.block:hover .descrBlock {
+    animation: show_descr .2s ease-out 0s 1 normal;
     animation-fill-mode: both;  
 }
 
@@ -276,18 +291,6 @@ body {
     color:white;
     width:100%;
     font-size:3vh;
-}
-
-.block:hover .descrBlock {
-    animation: show_descr .4s ease-out 0s 1 normal;
-    animation-fill-mode: both;  
-}
-
-
-
-@keyframes show_descr {
-    0%	{ bottom: -3.5vh; visibility: hidden;  }
-    100%	{ bottom: 0; visibility: visible; }
 }
 
 .descrBlock{
@@ -319,8 +322,6 @@ body {
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    // padding-top:10px;
-    vertical-align:middle;
 }
 .button:hover{
     cursor:pointer;
@@ -342,12 +343,72 @@ body {
 
 }
 
-.block:hover  .nameBlock, .block:hover  .descrBlock, .block:hover  .greyBg
-{
-   /* display:block;*/
-}
 .block:hover
 {
     cursor:pointer;
 }
-/*-----------------------------------------------------*/
+
+
+#bottom_content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100vw;
+    height: 4vh;
+    position: absolute;
+    bottom: 0;
+    background: #f00;
+    z-index: 20;
+    
+    
+}
+
+.bottom_menu_item {
+   
+    padding: 1.3vh;
+    font-family: roboto;
+}
+
+.bottom_menu_item:last-child {
+    margin-right: 5vw;
+}
+
+.bottom_menu_item:hover {
+    cursor: pointer;
+    background-color: #27ae60;
+    color:white;
+    
+}
+
+.menu_item {
+    display: inline-block;
+    font-family: roboto;
+    font-size: 2vh;
+    margin-left: 1vw;
+    color: #093b31;
+}
+
+.menu_item:hover {
+    cursor: pointer;
+    color:#1f6255;
+}
+
+@keyframes show_menu {
+    0%	{ margin-top: 4vh; }
+    100%	{ margin-top: 0; }
+}
+@keyframes hide_menu {
+    0%	{ margin-top: 0; }
+    100%	{ margin-top: 4vh; }
+}
+
+.show_menu_item{
+    animation: show_menu .2s ease-out 0s 1 normal;
+    animation-fill-mode: both; 
+}
+.hide_menu_item{
+    animation: hide_menu .2s ease-out 0s 1 normal;
+    animation-fill-mode: both; 
+}

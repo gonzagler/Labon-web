@@ -4,16 +4,32 @@ window.onscroll = function() {
     //document.getElementById('showScroll').innerHTML = scrolled + 'px';
     
     var top = document.getElementById("top_line_content");
+    var bottom = document.getElementById("bottom_line_content");
+ //   var bottom = $("bottom_content");
     
-    if(scrolled >= window.innerWidth*0.825)
+    if(scrolled >= window.innerWidth*0.80)
         {
             top.style.display = 'block';
             top.style.position = 'fixed';
-            top.style.left = 100 + "px";
+            top.style.left = 10 + "vw";
+            
+            bottom.style.display = "block";
+            bottom.style.position = "fixed";
+            bottom.style.left = 0 + "px";
+            if(!bottom.classList.contains("show_menu_item"))
+                bottom.className = "show_menu_item";
+            
+            
         }
     else
-        {
+    {
+        if(!bottom.classList.contains("hide_menu_item"))
+        bottom.className = "hide_menu_item";
             top.style.display = 'none';
+            //bottom.style.display = 'none';
+            
+            
+            
         }
     console.log(scrolled);
 }
@@ -22,7 +38,7 @@ window.onscroll = function() {
 
 
 var i = 0;
-var array = ["МАШИНЫ","ДЛЯ ДОМА","ИГРУШКИ","КОСМЕТИКА","ОДЕЖДА", "ЧТО-ТО ЕЩЕ", "ПОЧТИ ПОСЛЕДНЕЕ", "ПОСЛЕДНЕЕ"];
+var array = ["МАШИНЫ","ДЛЯ ДОМА","ИГРУШКИ","КОСМЕТИКА","ОДЕЖДА", "ЧТО-ТО ЕЩЕ", "ПОЧТИ ПОСЛЕДНЕЕ", "ПОСЛЕДНЕЕ", "САМОЕ ПОСЛЕДНЕЕ"];
 var tag_count = array.length;
 
 function change_image() {
@@ -36,6 +52,22 @@ function change_image() {
 setInterval (function() {i+= 3; if (i+3>tag_count) i=0; change_image();}, 3000);
 
 
+
+$(function () {
+
+    $("#arrow_on_green").click(function (event, delta) {
+        
+        
+        
+        $('html, body').animate({scrollLeft: ($("#content").position().left - $("#green_separator").width())}, 500);
+        
+        //this.scrollLeft = $("#content").position().left;
+
+        event.preventDefault();
+
+    });
+
+});
 
 
 /*$(function() {
