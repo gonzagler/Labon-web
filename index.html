@@ -9,8 +9,13 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type='text/javascript' src='jquery.mousewheel.min.js'></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/jquery.scrollbar.css">
     <link rel="stylesheet" type="text/css" href="style/fonts.css">
     <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="script/jquery.scrollbar.js"></script>
+
+
+
     <style>
 
     </style>
@@ -52,7 +57,7 @@
         </div>
         <div id="green_separator">
 
-            <div id="arrow_on_green" >
+            <div id="arrow_on_green">
             </div>
         </div>
         <div id="content">
@@ -69,25 +74,51 @@
                 <div id="bottom_stroke" class="merch_stroke"></div>
             </div>
 
-            <div id="bottom_line_content" >
+            <div id="bottom_line_content">
                 <div class="menu_item">Личный кабинет</div>
                 <div class="menu_item">Уведомления</div>
                 <div class="menu_item">Мои товары</div>
                 <div class="menu_item">О нас</div>
             </div>
-            <!--<div id="bottom_line_content">
-                <div id="bottom_content">
-                    <div class="bottom_menu_item">Личный кабинет</div>
-                    <div class="bottom_menu_item">Уведомления</div>
-                    <div class="bottom_menu_item">Мои товары</div>
-                    <div class="bottom_menu_item">О нас</div>
-                </div>
-            </div>-->
         </div>
     </div>
 
+
+    <!---------------------------------------------------->
+
+    <div class="popupPage" id="prodPage">
+
+        <div class="popupWindow" id="prodWindow">
+
+            <div class="popupContent" id="prodContent">
+                <div class="popupContentLeft">
+                    <img class="popupImage" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg">
+                </div>
+                <div class="popupContentRight">
+                    <div class="popupCommentCont scrollbar-inner">
+                        <div class="popupComments">
+                            <div style="background:red; height:50%;"></div>
+                            <div style="background:blue; height:50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <!---------------------------------------------------->
+
+
 </body>
 <script>
+    jQuery('.scrollbar-inner').scrollbar();
     console.log("width: " + window.innerWidth);
 
     var ss = document.getElementById("middle_stroke");
@@ -169,6 +200,24 @@
     }
 
 
+
+
+    $(".block").click(function (event) {
+        
+       
+        $('html, body').animate({
+            scrollLeft: ($(this).position().left - ($( window ).width()/2) + ($(this).width()/2))
+        }, 500);
+        
+        $(".popupPage").css("display", "block");
+    });
+
+    $(".popupPage").click(function () {
+        $(".popupPage").css("display", "none");
+    });
+
+
+
     $(document).on('mouseenter', '.image', function (event) {
 
         elem1 = "#nB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
@@ -194,7 +243,8 @@
         $("html,body").mousewheel(function (event, delta) {
 
             $('html, body').finish();
-            this.scrollLeft -= (delta * 60);
+            if ($(".popupPage").css('display') == 'none')
+                this.scrollLeft -= (delta * 60);
 
             event.preventDefault();
 

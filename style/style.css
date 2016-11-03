@@ -388,11 +388,12 @@ body {
     font-size: 2vh;
     margin-left: 1vw;
     color: #093b31;
-}
+    }
 
 .menu_item:hover {
     cursor: pointer;
     color:#1f6255;
+    border-bottom: 2px solid #099b7f;
 }
 
 @keyframes show_menu {
@@ -411,4 +412,61 @@ body {
 .hide_menu_item{
     animation: hide_menu .2s ease-out 0s 1 normal;
     animation-fill-mode: both; 
+}
+.popupPage {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.82);
+    z-index: 201;
+}
+
+.popupWindow {
+    position: fixed;
+    left: 25vw;
+    top: 25vh;
+    width: 50vw;
+    height 50vh;
+    background: #fff;
+    
+}
+
+.popupContent {
+    width: 50vw;
+    height: 50vh;
+    
+    
+}
+
+.popupContentLeft {
+    position: absolute;
+    left: 0;
+    width: 25vw;
+    height: 50vh;
+}
+
+.popupContentRight {
+    position: absolute;
+    right: 0;
+    width: 25vw;
+    height: 50vh;
+}
+
+.popupImage {
+    width:inherit;
+}
+
+.popupCommentCont {
+    position: absolute;
+    height:25vh;
+    width: inherit;
+    bottom:0;
+    overflow-y: scroll;
+}
+
+.popupComments {
+    height: 2000px;
+    padding-right: 1vw;
 }

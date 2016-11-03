@@ -70,6 +70,14 @@ $(function () {
 });
 
 
+function showProdPage(prodId)
+{
+    
+    
+
+};
+
+
 /*$(function() {
 
     var marquee = $("#marquee"); 
