@@ -128,12 +128,14 @@
 </body>
 <script>
     jQuery('.scrollbar-inner').scrollbar();
-    console.log("width: " + window.innerWidth);
-    console.log("widthPopUp: " + $(".popupWindow").width());
-    console.log("heightPopUp: " + $(".popupWindow").height());
+    jQuery.fn.exists = function(){return this.length>0;}
+    
+    setStrokeWidth();
+    
 
-    var ss = document.getElementById("middle_stroke");
-    var ss1 = document.getElementById("top_stroke");
+
+    var ss = document.getElementById("top_stroke");
+    var ss1 = document.getElementById("middle_stroke");
     var ss2 = document.getElementById("bottom_stroke");
     var height = ss.style.height;
 
@@ -141,6 +143,10 @@
 
     function getProd(ss, id) {
         return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
+    }
+    
+    function getProdNew(ss, id, name, img, descr) {
+        return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="' + img + '" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
     }
 
 
@@ -209,8 +215,34 @@
 
 
     }
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    function setStrokeWidth()
+    {
+        var wss = 0;
+        var wss1 = 0;
+        var wss2 = 0;
+        
+        
+        var i = 0;
+        while($("#b_ss_0_" + i).exists())
+            {
+                wss += $("#b_ss_0_" + i).width();
+                wss1 += $("#b_ss_1_" + i).width();
+                wss2 += $("#b_ss_2_" + i).width();
+                
+                i++;
+            }
+        
+        
+        $("#merch_wrapper").width(Math.max(wss, wss1, wss2));
+    }
 
 
     $(".block").click(function (event) {
@@ -219,18 +251,13 @@
         $('html, body').animate({
             scrollLeft: ($(this).position().left - ($( window ).width()/2) + ($(this).width()/2))
         }, 500);
+        console.log(event.target.id + "");
+        console.log($(event.target).data("ss") + "");
         
         $(".popupPage").css("display", "block");
     });
 
-    
-  /*  $(".popupPage").click(function (event) {
-        console.log($(event.target).attr("id"));
-        if($(this).attr("id")!= "prodPage")
-        $(".popupPage").css("display", "none");
-    });
-    */
-    
+
     $(document).mouseup(function (e)
                         {
         var container = $(".popupWindow");
@@ -279,6 +306,12 @@
         });
 
     });
+    
+    
+    $(window).resize(function(){
+        setStrokeWidth();
+    });
+    
 </script>
 
 </html>

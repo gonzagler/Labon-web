@@ -153,18 +153,17 @@ body {
 }
 
 .merch_stroke {
-    flex-basis: 29.3vh;
+   /* flex-basis: 29.3vh;*/
+    height: 29.3vh;
 }
 
 #merch_wrapper {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center;/*
-    align-items: stretch;
-    align-content: stretch;*/
+    justify-content: center;
     height: 88vh;
-    width: 100000px;
+    width: auto;
     margin-top:7.8vh;
 }
 
@@ -199,13 +198,6 @@ body {
     border-bottom: 2px solid #27ae60;
 }
 
-.tovar{
-    height: 29.3vh;
-}
-.tovar:hover{
-    background: rgba(0, 0, 0, 0.51);
-    
-}
 
 #category_list {
     display: inline-block;
@@ -264,7 +256,7 @@ body {
 @keyframes show_descr {
     0%	{ bottom: -3.5vh; visibility: hidden;  }
     100%	{ bottom: 0; visibility: visible; }
-}
+}console.log($("merch_wrapper").width());
 
 .block:hover .greyBg {
     animation: show_grey_bg .175s ease-out 0s 1 normal;
