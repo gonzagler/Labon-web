@@ -441,13 +441,16 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
+    
 }
 
 .popupContentRight {
     position: absolute;
     right: 0;
+    top:0;
     width: 50%;
     height: 100%;
+    border-left: 5px solid #0f594b;
 }
 
 .popupImage {
@@ -455,6 +458,7 @@ body {
     background-image: url("http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg");
     background-size: cover;
     background-position: 50% 50%;
+    border-bottom: 5px solid #0f594b;
 }
 
 .popupCommentCont {
@@ -507,11 +511,13 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1em;
     line-height: 1.1em;
-    padding: 5px 8p
+    padding: 5px 8p;
+    width: 95%;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     transition: background-color 0.2s ease 0s;
+    margin-left: 9px;
 }
 
 textarea:hover, 
@@ -526,4 +532,43 @@ button:hover,
 label:focus {
     outline:0px !important;
     -webkit-appearance:none;
+}
+
+.popupProdName {
+    font-family: Roboto;
+    font-size: 30px;
+    color: #0f594b;
+    text-align: center;
+    padding: 5px 0px 5px 10px;
+}
+
+.popupProdDescrTitle {
+     font-family: Roboto;
+    font-size: 20px;
+    color: #0f594b;
+    padding: 20px 0px 5px 10px;
+}
+
+.popupOwnerName {
+    text-align: left;
+    display: inline-block;
+    width: 40%;
+
+}
+
+.popupOwnerDate {
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.popupOwnerInfo {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.popupCommentTitle {
+    padding: 10px 0px 10px 10px
 }
