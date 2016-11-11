@@ -130,97 +130,27 @@
     jQuery('.scrollbar-inner').scrollbar();
     jQuery.fn.exists = function(){return this.length>0;}
     
-    setStrokeWidth();
     
+   
 
-
-    var ss = document.getElementById("top_stroke");
-    var ss1 = document.getElementById("middle_stroke");
+    var ss = document.getElementById("middle_stroke");
+    var ss1 = document.getElementById("top_stroke");
     var ss2 = document.getElementById("bottom_stroke");
     var height = ss.style.height;
-
-    var prod = '<div class = "block"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
 
     function getProd(ss, id) {
         return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
     }
-    
-    function getProdNew(ss, id, name, img, descr) {
-        return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="' + img + '" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
-    }
 
 
-    for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 10; i++) {
 
 
         ss.innerHTML += getProd(0, i);
         ss1.innerHTML += getProd(1, i);
         ss2.innerHTML += getProd(2, i);
-
-        /* ss.innerHTML += '<div class = "block" id="b_ss_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
-        ss1.innerHTML += '<div class = "block" id="ss1_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';
-        ss2.innerHTML += '<div class = "block" id="ss2_' + i +'"><div class="textCont"><div class = "greyBg"></div><div class = "nameBlock">Name</div><div class = "descrBlock">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" ></div>';*/
-
-        /*var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-
-        switch(r)
-        {
-        case 1:
-        ss.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-        break;
-
-        case 2:
-        ss.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-        break;
-
-        case 3:
-        ss.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-        break;
-
-        }
-        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-
-        switch(r)
-        {
-        case 1:
-        ss1.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-        break;
-
-        case 2:
-        ss1.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-        break;
-
-        case 3:
-        ss1.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-        break;
-
-        }
-        var r = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-
-        switch(r)
-        {
-        case 1:
-        ss2.innerHTML +="<img class = 'tovar' src='img/1.jpg'>";
-        break;
-
-        case 2:
-        ss2.innerHTML +="<img class = 'tovar' src='img/2.jpg'>";
-        break;
-
-        case 3:
-        ss2.innerHTML +="<img class = 'tovar' src='img/3.jpg'>";
-        break;
-
-        }*/
-
-
     }
-    
-    
-    
-    
-    
-    
+   
     
     
     function setStrokeWidth()
@@ -245,19 +175,18 @@
     }
 
 
+
     $(".block").click(function (event) {
         
        
         $('html, body').animate({
             scrollLeft: ($(this).position().left - ($( window ).width()/2) + ($(this).width()/2))
         }, 500);
-        console.log(event.target.id + "");
-        console.log($(event.target).data("ss") + "");
         
         $(".popupPage").css("display", "block");
     });
 
-
+       
     $(document).mouseup(function (e)
                         {
         var container = $(".popupWindow");
@@ -308,10 +237,18 @@
     });
     
     
-    $(window).resize(function(){
-        setStrokeWidth();
-    });
+   
+    
+    
+     window.onload = function(){
+        
+        
+        
+    setStrokeWidth();
+  }
+    
     
 </script>
+
 
 </html>
