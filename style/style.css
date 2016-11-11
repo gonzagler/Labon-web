@@ -155,7 +155,8 @@ margin-top: 10vh;
 }
 
 .merch_stroke {
-    flex-basis: 29.3vh;
+    /*flex-basis: 29.3vh;*/
+	height: 29.3vh;
 }
 
 #merch_wrapper {
