@@ -1,0 +1,116 @@
+#reg{
+	border: none;
+	position: relative;
+	right: 100px;
+}
+.sign{
+	text-align: center;
+	position: relative;
+}
+.fofm h3{
+	font-size: 26px;
+	font-family: Roboto light;
+	display: inline-block;
+	color: #fff;
+	position: relative;
+	bottom: 3em;
+	
+	
+}
+.main_sign{
+	position: relative;
+	bottom: 4em;
+	height: 350px;
+	text-align: center;
+}
+.sign .button_h{
+	top: 35px;
+	left: 0px;
+	color: #27AE60;
+	border-color: #27AE60;
+	cursor: pointer;
+}
+.sign .button--winona::after {
+	background-color: #27AE60;
+}
+.fofm input
+ {
+	height: 35px;
+	line-height: 35px;
+	padding-left: 7px;
+	 margin-top: 15px;
+	font-size: 16px;
+	border: none;
+	border-bottom: 2px solid  #27AE60;
+	outline: none;
+	  color: #0f594b;
+	 font-size: 18px;
+
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 99999;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.popup, .popup2{
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    position: fixed;
+    text-align: justify;
+    top: 50%;
+    visibility: hidden;
+    z-index: 999999;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+}
+.popup form {
+	width: 470px;
+    height: 400px;
+	background-color:#fff;
+	display: inline-block;
+	border: 4px solid #27AE60;
+    border-top: 70px solid  #27AE60;
+}
+.popup2 .window {
+    padding: 0 27px 27px;
+    right: 0;
+    width: 373px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    border: 1px solid #72bffc;
+    border-top: 40px solid  #DD5044;
+}
+.popup .close_modal,
+.popup2 .close_modal  {
+    padding: 1px 9px 4px 9px;
+	position: absolute;
+	margin-left: 450px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'tahoma', sans-serif;
+	font-size: 18px;
+    background:  #27AE60;
+    text-align: center;
+}

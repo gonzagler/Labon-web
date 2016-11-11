@@ -1,14 +1,18 @@
-
 window.onscroll = function() {
     var scrolled = window.pageXOffset || document.documentElement.scrollLeft;
-    //document.getElementById('showScroll').innerHTML = scrolled + 'px';
+    
     
     var top = document.getElementById("top_line_content");
     var bottom = document.getElementById("bottom_line_content");
  //   var bottom = $("bottom_content");
+    var green_separator_position = $("#green_separator").offset().left;
     
-    if(scrolled >= window.innerWidth*0.80)
+    //console.log(scrolled + "");
+    
+    
+    if(scrolled > green_separator_position  )
         {
+            
             top.style.display = 'block';
             top.style.position = 'fixed';
             top.style.left = 10 + "vw";
@@ -31,7 +35,7 @@ window.onscroll = function() {
             
             
         }
-    console.log(scrolled);
+    
 }
 
 
@@ -68,6 +72,20 @@ $(function () {
     });
 
 });
+
+
+function showProdPage(prodId)
+{
+    
+    
+
+};
+
+
+	$(window).load(function(){
+		
+	});
+
 
 
 /*$(function() {

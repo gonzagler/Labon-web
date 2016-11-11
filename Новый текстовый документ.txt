@@ -1,0 +1,28 @@
+  <div class="popup">
+        <div class="close_modal">x</div>
+        <form class="fofm" action="">
+            <h5>Заказ  грузоперевозки</h5>
+            <input type="text" required="" placeholder="Имя" name="txtname">
+            <input type="email" placeholder="Email" name="txtemail">
+            <input type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required="" placeholder="Телефон" name="txtphone">
+            <textarea name="txtmessage" placeholder="Комментарий к заказу" rows="10"></textarea>
+     
+    		<input type="submit" class="button_b" value="Отправить"  name="btnsend">
+        </form>
+    </div>
+
+    <div class="popup2">
+    <div class="close_modal">x</div>
+    	<div class="window">
+    		<div class="insText">
+    			<h5>запрос отправлен</h5>
+    			<p><strong>Ваш запрос отправлен.</strong>Наш менеджер свяжется с вами в ближайшее время!</p>
+    			<hr>
+    			<p>Предлагаем подробную информацию по продукции:</p>
+    		</div>
+    	</div>
+    </div>
+						<div class="open_modal">
+								<a href="popup" class="button"  >Заказать грузоперевозку</a>
+						</div>
+						
