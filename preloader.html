@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<style>
+    
+
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style/fonts.css"> </head>
+<script type="text/javascript" src="script/jquery-1.9.1.js"></script>
+
+<body>
+    <div class="main"><div class="logo_img"></div><span class="first_text">lab</span><span class="append_first_text">a</span><span class="second_text"> on</span><span class="append_second_text">e</span></div>
+    <script>
+        setTimeout(function () {
+           
+            $('.append_first_text').animate({
+            opacity: 0
+        }, 300);
+            $('.append_second_text').animate({
+            opacity: 0
+        }, 300);
+            
+            setTimeout(function () {
+                
+                $('.append_first_text').animate({
+            marginLeft: "-8.2vw"
+        }, 300);
+          
+             //   $(".second_text").css("margin-left", "-100px"); 
+                
+        }, 200);
+        }, 1000);
+    </script>
+</body>
+
+</html>

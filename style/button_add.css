@@ -1,0 +1,48 @@
+/* Component styles */
+.button_add:hover{
+	cursor: pointer;
+}
+.button_add {
+   font-family: Intro;
+    font-size: 2.5vw;
+	 display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 5px solid #27ae60;
+	padding: 2.6vh 1vw;
+	font-weight: bold;
+	color: #27ae60;
+	text-shadow: 0 -0.5px 1px rgba(0, 0, 0, 0.15);
+	position: relative;
+
+}
+.button_add.styl-material {
+	-webkit-transition: 200ms background cubic-bezier(0.4, 0, 0.2, 1);
+	transition: 200ms background cubic-bezier(0.4, 0, 0.2, 1);
+	background: none;
+}
+
+.button_add.styl-material:hover,
+.button_add.styl-material:focus {
+	outline: none;
+	background: none;
+}
+
+.ripple-obj {
+	
+	height: 100%;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	fill:  #27ae60;
+}
+
+.ripple-obj use {
+	opacity: 0;
+}
+
+

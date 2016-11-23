@@ -1,3 +1,195 @@
+jQuery('.scrollbar-inner').scrollbar();
+    jQuery.fn.exists = function(){return this.length>0;}
+    
+    
+   
+
+    var ss = document.getElementById("middle_stroke");
+    var ss1 = document.getElementById("top_stroke");
+    var ss2 = document.getElementById("bottom_stroke");
+    var height = ss.style.height;
+
+    function getProd(ss, id) {
+        return '<div class = "block" id="b_ss_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"><div class="textCont" ><div class = "greyBg" id="gBg_' + ss + '_' + id + '" data-ss = "' + ss + '" data-id = "' + id + '"></div><div class = "nameBlock" id="nB_' + ss + '_' + id + '">Name</div><div class = "descrBlock"id="dB_' + ss + '_' + id + '">Description</div></div><img class= "image" src="http://velosvit.com.ua/decor/coach/1920-Wastyn-Special.jpg" data-ss = "' + ss + '" data-id = "' + id + '" ></div>';
+    }
+
+
+      for (var i = 0; i < 10; i++) {
+
+
+        ss.innerHTML += getProd(0, i);
+        ss1.innerHTML += getProd(1, i);
+        ss2.innerHTML += getProd(2, i);
+    }
+   
+    
+    
+    function setStrokeWidth()
+    {
+        var wss = 0;
+        var wss1 = 0;
+        var wss2 = 0;
+        
+        
+        var i = 0;
+        while($("#b_ss_0_" + i).exists())
+            {
+                wss += $("#b_ss_0_" + i).width();
+                wss1 += $("#b_ss_1_" + i).width();
+                wss2 += $("#b_ss_2_" + i).width();
+                
+                i++;
+            }
+        
+        
+        $("#merch_wrapper").width(Math.max(wss, wss1, wss2));
+    }
+
+
+
+    $(".block").click(function (event) {
+        
+       
+        $('html, body').animate({
+            scrollLeft: ($(this).position().left - ($( window ).width()/2) + ($(this).width()/2))
+        }, 500);
+        
+        $(".popupPage").css("display", "block");
+    });
+
+        $(".exchangeGood").click(function (event) {
+        removeGoodSelectClass();
+        $(event.target).addClass("exchangeGoodSelect"); 
+        
+        
+        $('.exchangeGoodslist').animate({
+            scrollTop: ($(this).position().top + $('.exchangeGoodslist').scrollTop() - 130)
+        }, 300);
+        
+        
+        $('.exchangeGoodPreview').animate({
+            opacity: 0
+        }, 'slow', function () {
+            $('.exchangeGoodPreview').css({
+                'background-image': 'url(../img/'+$(event.target).data("img")+'.jpg)'
+            }).animate({
+                opacity: 1
+            });
+        });
+    });
+    
+     $(".exchangeArrowTop").click(function (event) {
+        $('.exchangeGoodslist').animate({
+            scrollTop: ($(".exchangeGoodslist").scrollTop() - 115)
+        }, 300);
+    });
+    $(".exchangeArrowBottom").click(function (event) {
+        $('.exchangeGoodslist').animate({
+            scrollTop: ($(".exchangeGoodslist").scrollTop() + 115)
+        }, 300);
+    });
+    
+    function removeGoodSelectClass()
+    {
+          var goodsExchange = document.getElementsByClassName('exchangeGood');
+        
+        for (var i = 0; i < goodsExchange.length; i++)
+            {
+                goodsExchange[i].className = "exchangeGood";
+                //removeClass( goodsExchange[i], 'exchangeGoodSelect');
+            }
+    }
+    
+    $(document).mouseup(function (e)
+                        {
+        var container = $(".popupWindow");
+
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            $(".popupPage").css("display", "none");
+        }
+    });
+
+
+
+ $(document).on('mouseenter', '.popupContentRight', function (event) {
+        /*console.log(event.target.classList[0]);*/
+        $(".popupContentLeft").css("width", "50%");
+        $(".popupInnerImage").css("width", "100%");
+    }).on('mouseleave', '.popupContentRight', function (event) {
+        $(".popupContentLeft").css("width", "93%");
+        $(".popupInnerImage").css("width", "50%");
+    });
+
+
+    $(document).on('mouseenter', '.image', function (event) {
+
+        elem1 = "#nB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+
+
+        
+        
+
+
+
+    }).on('mouseleave', '.greyBg', function (event) {
+        elem1 = "#nB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem2 = "#dB_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+        elem3 = "#gBg_" + $(event.target).data("ss") + "_" + $(event.target).data("id");
+
+
+
+
+    });
+
+    $(function () {
+
+        $("html,body").mousewheel(function (event, delta) {
+
+         if (event.target.classList[0] == "exchangeGoodslist" || event.target.classList[0] == "exchangeGood") {
+                $(".exchangeGoodslist").scrollTop($(".exchangeGoodslist").scrollTop() - delta);
+            }
+            $('html, body').finish();
+            if ($(".popupPage").css('display') == 'none') this.scrollLeft -= (delta * 60);
+            event.preventDefault();
+
+        });
+
+    });
+    
+    
+   
+    
+    
+     window.onload = function(){
+    setStrokeWidth();
+		 
+        var goodsExchange = document.getElementsByClassName('exchangeGood');
+        
+        for (var i = 0; i < goodsExchange.length; i++)
+            {
+                goodsExchange[i].style.backgroundImage = "url('../../img/"+ goodsExchange[i].getAttribute("data-img") +".jpg')";
+            }
+        
+        
+            setTimeout(function () {
+                
+            
+                $( ".preloader_wrapper" ).fadeTo( "slow", 0.30 );
+                
+                 setTimeout(function () {
+                $('.preloader_wrapper').css("display", "none");
+                     },300);
+        
+                },1600);
+		 $(".button_sign").click(function(){
+			$(".log_in").slideToggle(600);
+		});
+  }
+
 
 window.onscroll = function() {
     var scrolled = window.pageXOffset || document.documentElement.scrollLeft;
@@ -43,7 +235,7 @@ window.onscroll = function() {
 
 
 var i = 0;
-var array = ["МАШИНЫ","ДЛЯ ДОМА","ИГРУШКИ","КОСМЕТИКА","ОДЕЖДА", "ЧТО-ТО ЕЩЕ", "ПОЧТИ ПОСЛЕДНЕЕ", "ПОСЛЕДНЕЕ", "САМОЕ ПОСЛЕДНЕЕ"];
+var array = ["МАШИНЫ","ДЛЯ ДОМА","ИГРУШКИ","КОСМЕТИКА","ОДЕЖДА", "ЧТО-ТО ЕЩЕ", "ТЕЛЕФОНЫ", "СТРОИТЕЛЬСТВО", "УЧЕБА"];
 var tag_count = array.length;
 
 function change_image() {
@@ -73,34 +265,3 @@ $(function () {
     });
 
 });
-
-
-function showProdPage(prodId)
-{
-    
-    
-
-};
-
-
-/*$(function() {
-
-    var marquee = $("#marquee"); 
-    marquee.css({"overflow": "hidden", "width": "100%"});
-
-    // оболочка для текста ввиде span (IE не любит дивы с inline-block)
-    marquee.wrapInner("<span>");
-    marquee.find("span").css({ "width": "50%", "display": "inline-block", "text-align":"center" }); 
-    marquee.append(marquee.find("span").clone()); // тут у нас два span с текстом
-
-    marquee.wrapInner("<div>");
-    marquee.find("div").css("width", "200%");
-
-    var reset = function() {
-        $(this).css("margin-left", "0%");
-        $(this).animate({ "margin-left": "-100%" }, 12000, 'linear', reset);
-    };
-
-    reset.call(marquee.find("div"));
-
-});*/
